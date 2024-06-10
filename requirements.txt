@@ -1,0 +1,6 @@
+Flask==2.0.3
+Werkzeug==2.0.3
+web3==5.27.0
+parsimonious==0.8.1
+eth-abi==2.1.1
+eth-account==0.5.7
