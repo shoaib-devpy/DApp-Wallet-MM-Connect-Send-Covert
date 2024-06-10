@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const tokenSelect = document.getElementById('token');
     const convertedAmountInput = document.getElementById('convertedAmount');
     const amountInput = document.getElementById('amount');
+    const ticker = document.getElementById('ticker');
 
     let web3;
     let accounts;
@@ -15,6 +16,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'usdt': 'tether',
         'btc': 'bitcoin'
     };
+
+    const fetchTickerData = async () => {
+        try {
+            const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,tether&vs_currencies=usd');
+            const data = await response.json();
+            ticker.innerHTML = `
+                <div class="ticker-item">BTC: $${data.bitcoin.usd}</div>
+                <div class="ticker-item">ETH: $${data.ethereum.usd}</div>
+                <div class="ticker-item">USDT: $${data.tether.usd}</div>
+            `;
+        } catch (error) {
+            console.error('Error fetching ticker data', error);
+        }
+    };
+
+    setInterval(fetchTickerData, 5000);
 
     connectButton.addEventListener('click', async () => {
         if (window.ethereum) {

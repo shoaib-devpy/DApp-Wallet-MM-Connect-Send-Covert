@@ -8,6 +8,7 @@ This project is a decentralized application (DApp) that allows users to connect 
 - Convert ETH to selected tokens (USDT, BTC) based on real-time conversion rates
 - Display the connected wallet address
 - Display real-time converted token amounts, refreshing every 5 seconds
+- Ticker: displaying real-time market data for Bitcoin, Ethereum, and Tether, updating every 5 seconds.
 
 ## Technologies Used
 - HTML  
